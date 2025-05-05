@@ -6,34 +6,129 @@
     <title>Main</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+     .comment{
+        font-size: medium;
+        font-weight: bolder;
+        border: 2px solid blue;
+        background-color: lightblue;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+     }
+     .total-btn{
+        background-color: orange;
+        border: 2px solid blueviolet;
+        margin: 8px;
+        padding: 5px;
+        border-radius: 10px;
+     }
+
+ </style>
 </head>
 <body class="bg-slate-800">
-   <section class="max-w-md min-h-screen mx-auto py-6 bg-gray-200">
-<header>
-    <nav class="flex justify-around items-center">
-        <img width="w-16" src="assets/Group.png" alt="">
-        <div>
-            <h1 class="text-3xl font-bold"> $ <span id="main-balance">4500</span></h1>
-            <p class="border rounded p-1">মোট টাকা</p>
+    <section class="max-w-md min-h-screen mx-auto py-6 bg-gray-200">
+ <header>
+     <nav class="flex justify-around items-center">
+         <img width="w-16" src="assets/Group.png" alt="">
+         <div>
+             <h1 class="text-3xl font-bold"> $ <span id="main-balance">4500</span></h1>
+             <p class="border rounded p-1">মোট টাকা</p>
+         </div>
+     </nav>
+     <section class="mt-10">
+         <h1 class="text-2xl font-bold mb-2">সব হিসাব</h1>
+         <div class="cards cursor-pointer grid grid-cols-2 mt-14 gap-2 p-2">
+ 
+             <div id="add-money-box" class="box border p-4 text-center rounded-sm">
+                 <img class="w-8 mx-auto" src="assets/purse1.png" alt="">
+                 <h3>Add money</h3>
+             </div>
+             <div id="cashout-box" class="box border p-4 text-center rounded-sm">
+                 <img class="w-8 mx-auto" src="assets/money1.png" alt="">
+                 <h3>Cash Out</h3>
+             </div>
+             <div id="total" class="box border p-4 text-center rounded-sm">
+                 <img class="w-8 mx-auto" src="assets/transaction1.png" alt="">
+                 <h3>সিট অনুযায়ী টাকা</h3>
+             </div>
+             <div id="total-cost2" class="box border p-4 text-center rounded-sm">
+                 <img class="w-8 mx-auto" src="assets/wallet1.png" alt="">
+                 <h3>খরচ হিসাব</h3>
+             </div>
+         </div>
+ 
+         <section id="add-money">
+             <h2>Add money</h2>
+             <div class="">
+                 <div class="hero-content flex-col lg:flex-row-reverse">
+                   
+                   <div class="card w-full max-w-sm shrink-0 shadow-2xl">
+                     <div class="card-body">
+                         <form class="card-body">
+                             <fieldset class="fieldset">
+                               <label class="label">Account Number</label>
+                               <input value="01773568327" id="account-number" type="text" class="input" placeholder="Type Your Number" required />
+                               <label class="label">Amount</label>
+                               <input id="amount" type="text" class="input" placeholder="Type Your Amount" required />
+                               <label class="label">PIN</label>
+                               <input value="1234" id="pin" type="Text" class="input" placeholder="Type Your PIN" required/>
+                               <div><a class="link link-hover">Forgot password?</a></div>
+                               <button type="submit" id="add-money" class="btn btn-neutral bg-blue-700">Add Money</button>
+                             </form>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+         </section>
+ 
+         <section id="cashout-sec">
+             <h2>Cashout</h2>
+             <form class="card-body">
+                 <fieldset class="fieldset">
+                   <label class="label">Account Number</label>
+                   <input value="01773568327" id="account-number" type="text" class="input" placeholder="Type Your Number" required />
+                   <label class="label">Amount</label>
+                   <input id="chashout-amount" type="text" class="input" placeholder="Type Your Amount" required />
+                   <label class="label">PIN</label>
+                   <input value="1234" id="chashout-pin" type="Text" class="input" placeholder="Type Your PIN" required/>
+                   <div><a class="link link-hover">Forgot password?</a></div>
+                   <button type="submit" id="cashout-btn" class="btn btn-neutral bg-blue-700">Cashout</button>
+                 </form>
+         </section>
+ 
+     </section>
+     <section id="total-money">
+        <h2>Total collection</h2>
+        <!-- <form> -->
+        <div id="commnets-container">
+        <p class="comment">all text here</p>
+        <p class="comment">all text here</p>
         </div>
-    </nav>
-    <section class="mt-10">
-        <h1 class="text-2xl font-bold mb-2">সব হিসাব এখানে!</h1>
-        <div class="cards cursor-pointer grid grid-cols-3 mt-14 gap-2 p-2">
+        <textarea name="" id="comment-text-box" cols="50" rows="5"></textarea>
+        <br>
+        <button id="total-btn-m" class="total-btn">Text Add</button>
+        <!-- </form> -->
+     </section>
 
-            <div id="add-money-box" class="box border p-4 text-center rounded-sm">
-                <img class="w-8 mx-auto" src="assets/purse1.png" alt="">
-                <h3>Add money</h3>
-            </div>
-            <div id="cashout-box" class="box border p-4 text-center rounded-sm">
-                <img class="w-8 mx-auto" src="assets/money1.png" alt="">
-                <h3>Cash Out</h3>
-            </div>
-            <div class="box border p-4 text-center rounded-sm">
-                <img class="w-8 mx-auto" src="assets/" alt="">
-                <h3>Bonus</h3>
-            </div>
-
-
+    <!-- h2 -->
+    <section id="total-cost">
+        <h2>Total Cost</h2>
+        <!-- <form> -->
+        <div id="commnets-container">
+        <p class="comment">সব খরচ এর হিসাব</p>
+        <p class="comment">all text</p>
+        </div>
+        <textarea name="" id="comment-text-box" cols="50" rows="5"></textarea>
+        <br>
+        <button id="total-btn-m" class="total-btn">Text Add</button>
+        <!-- </form> -->
+     </section>
+ </header>
+</section>
+ <script src="scriopt/add-money.js"></script>
+ <script src="scriopt/toggle.js"></script>
+ <script src="scriopt/cashout.js"></script>
+ <script src="scriopt/total-money.js"></script>
 </body>
 </html>
